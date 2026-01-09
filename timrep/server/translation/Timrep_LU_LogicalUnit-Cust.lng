@@ -1,0 +1,80 @@
+-------------------------------------------------------
+File Type: IFS Foundation Language File
+Type version: 10.00
+-------------------------------------------------------
+Module: TIMREP
+Layer: Cust
+Main Type: LU
+Sub Type: Logical Unit
+Content: 
+-------------------------------------------------------
+CS:CTimesheetEmail^LU^Logical Unit^N^N
+	A:Prompt^Timesheet Email^
+	CS:C_TIMESHEET_EMAIL^LU^View^N^N
+		CS:ACTIVE^LU^Column^N^N
+			A:Prompt^Active^
+		CE:
+		CS:ACTIVE_DB^LU^Column^N^N
+			A:Prompt^Active^
+		CE:
+		CS:COMPANY^LU^Column^N^N
+			A:Prompt^Company^
+		CE:
+		CS:DATE_FROM^LU^Column^N^N
+			A:Prompt^Date From^
+		CE:
+		CS:DAY_OF_WEEK^LU^Column^N^N
+			A:Prompt^Day Of Week^
+		CE:
+		CS:DAY_OF_WEEK_DB^LU^Column^N^N
+			A:Prompt^Day Of Week^
+		CE:
+		CS:EMAIL_TEMPLATE^LU^Column^N^N
+			A:Prompt^Email Template^
+		CE:
+		CS:EMPLOYEE_TEMPLATE^LU^Column^N^N
+			A:Prompt^Employee Template^
+		CE:
+		CS:INCLUDE_MANAGER^LU^Column^N^N
+			A:Prompt^Include Manager^
+		CE:
+		CS:INCLUDE_MANAGER_DB^LU^Column^N^N
+			A:Prompt^Include Manager^
+		CE:
+		CS:LAST_SENT_AT^LU^Column^N^N
+			A:Prompt^Last Sent At^
+		CE:
+		CS:MODIFIED_AT^LU^Column^N^N
+			A:Prompt^Modified At^
+		CE:
+		CS:MODIFIED_BY^LU^Column^N^N
+			A:Prompt^Modified By^
+		CE:
+		CS:SUBJECT^LU^Column^N^N
+			A:Prompt^Subject^
+		CE:
+		CS:TIME_OF_DAY^LU^Column^N^N
+			A:Prompt^Time Of Day^
+		CE:
+		CS:TIME_ZONE_CODE^LU^Column^N^N
+			A:Prompt^Time Zone Code^
+		CE:
+	CE:
+	CS:FORMAT_ERROR^LU^Message^N^N
+		A:Text^Time is invalid.^
+	CE:
+	CS:INTERVAL_ERROR^LU^Message^N^N
+		A:Text^Time requires a value greater than 00:00 and less than 23:59^
+	CE:
+CE:
+CS:CTimesheetEmailUtil^LU^Logical Unit^N^N
+	A:Prompt^C Timesheet Email Util^
+	CS:NOTEMPLATE^LU^Message^N^N
+		A:Text^No email template attached for :P1-:P2^
+	CE:
+CE:
+CS:TimePersDiary^LU^Logical Unit^N^N
+	A:Prompt^Time Card^
+	CS:TIME_PERS_DIARY^LU^View^N^N
+	CE:
+CE:

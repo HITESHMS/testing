@@ -1,0 +1,44 @@
+projection CTimesheetEmailHandling;
+component TIMREP;
+layer Cust;
+description "Timesheet Email Handling";
+category Users;
+
+--------------------------------- FRAGMENTS ---------------------------------
+
+----------------------------- MAIN ENTRY POINTS -----------------------------
+entityset CTimesheetEmails for CTimesheetEmail {
+   context Company(Company);
+}
+
+------------------------------ ENTITY DETAILS -------------------------------
+@Override
+entity CTimesheetEmail {
+   reference EmailTemplateRef(Company, EmailTemplate) to CCompanyEmail(Company, Id);
+   reference EmpTemplateRef(Company, EmployeeTemplate) to EmpTemplate(CompanyId, TemplateId);
+   reference TimezoneRef(TimeZoneCode) to IsoTimeZone(TimeZoneCode);
+}
+
+
+------------------------------- ENUMERATIONS --------------------------------
+
+
+---------------------------------- QUERIES ----------------------------------
+
+
+---------------------------------- ACTIONS ----------------------------------
+
+
+--------------------------------- FUNCTIONS ---------------------------------
+
+
+-------------------------------- STRUCTURES ---------------------------------
+
+
+--------------------------------- VIRTUALS ----------------------------------
+
+
+--------------------------------- SUMMARIES ---------------------------------
+
+
+-------------------------------- SINGLETONS ---------------------------------

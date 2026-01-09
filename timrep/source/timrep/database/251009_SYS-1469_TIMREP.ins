@@ -1,0 +1,50 @@
+-----------------------------------------------------------------------------
+--  Module : TIMREP
+--
+--  Purpose: <<<Purpose>>>
+--
+--  File   : 251009_SYS-1469_TIMREP.ins
+--
+--  IFS Developer Studio Template Version 2.6
+--
+--  Date    Sign    History
+--  ------  ------  ---------------------------------------------------------
+--  251010  hweerasinghe SYS-1469 Created
+-----------------------------------------------------------------------------
+
+PROMPT Register Modification SYS-1469
+DECLARE
+BEGIN
+   C_Mod_Register_API.Register (
+      'SYS-1469',
+      'Timesheet reminders by email');
+   COMMIT;
+END;
+/
+
+PROMPT Register Batch Schedule Method "C_TIMESHEET_EMAIL_UTIL_API.PROCESS_EMAILS"
+DECLARE
+   schedule_method_id_ NUMBER          := NULL;
+   seq_no_             NUMBER          := NULL;
+   info_msg_           VARCHAR2(32000) := NULL;
+BEGIN
+-- Construct Main Message
+   info_msg_    := Message_SYS.Construct('');
+   Message_SYS.Add_Attribute(info_msg_, 'METHOD_NAME', 'C_TIMESHEET_EMAIL_UTIL_API.PROCESS_EMAILS');
+   Message_SYS.Add_Attribute(info_msg_, 'DESCRIPTION', 'SYSTRA Timesheet Reminders');
+   Message_SYS.Add_Attribute(info_msg_, 'MODULE', 'TIMREP');
+   Message_SYS.Add_Attribute(info_msg_, 'SINGLE_EXECUTION_DB', 'FALSE');
+   Message_SYS.Add_Attribute(info_msg_, 'ARGUMENT_TYPE_DB', 'NONE');
+   Message_SYS.Add_Attribute(info_msg_, 'VALIDATION_METHOD', '');
+   Message_SYS.Add_Attribute(info_msg_, 'CHECK_EXECUTING_DB', 'FALSE');
+   Message_SYS.Add_Attribute(info_msg_, 'CHECK_DAY_DB', 'FALSE');
+-- Register Batch Schedule Method
+   Batch_SYS.Register_Batch_Schedule_Method(schedule_method_id_, info_msg_);
+-- Adding parameters
+END;
+/
+COMMIT
+/
+
+
+

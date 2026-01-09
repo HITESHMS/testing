@@ -1,0 +1,80 @@
+client CTimesheetEmail;
+component TIMREP;
+layer Cust;
+projection CTimesheetEmailHandling;
+description "Timesheet Email";
+
+--------------------------------- FRAGMENTS ---------------------------------
+
+----------------------------- NAVIGATOR ENTRIES -----------------------------
+
+-------------------------------- MAIN PAGES ---------------------------------
+page CTimesheetEmailOverviewPage using CTimesheetEmails {
+   label = "SYSTRA Timesheet Emails";
+   list TimesheetEmailsList;
+}
+
+--------------------------------- COMMANDS ----------------------------------
+
+
+--------------------------------- SELECTORS ---------------------------------
+
+
+---------------------------------- GROUPS -----------------------------------
+
+
+----------------------------------- LISTS -----------------------------------
+list TimesheetEmailsList for CTimesheetEmail {
+
+   lov EmailTemplateRef with ReferenceCCompanyEmailSelector {
+      label = "Template ID";
+      description = EmailTemplateRef.Description;
+      details = "page/CCompanyEmail/CCompanyEmailOverviewPage?$contexts=Company:$[Company]&$filter=Id eq $[EmailTemplate]";
+   }
+
+   field Subject;
+   field DayOfWeek;
+   field TimeOfDay;
+   field TimezoneRef {
+      label = "Time Zone Code";
+   }
+   field DateFrom;
+   field IncludeManager;
+   lov EmpTemplateRef with ReferenceEmpTemplateSelector {
+      label = "Employee Selection Template";
+      description = EmpTemplateRef.TemplateName;
+   }
+   field Active;
+   field LastSentAt {
+      label = "Sent At";
+      editable = [false];
+   }
+   field ModifiedBy;
+   field ModifiedAt;
+}
+
+---------------------------------- DIALOGS ----------------------------------
+
+
+-------------------------------- SINGLETONS ---------------------------------
+
+
+---------------------------------- CHARTS -----------------------------------
+
+
+--------------------------------- CALENDERS ---------------------------------
+
+
+---------------------------------- SHEETS -----------------------------------
+
+
+----------------------------- STATE INDICATORS ------------------------------
+
+
+----------------------------------- TREES -----------------------------------
+
+
+---------------------------------- PLUGINS ----------------------------------
+
+
+------------------------------- IMAGE VIEWERS -------------------------------

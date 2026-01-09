@@ -1,0 +1,68 @@
+-----------------------------------------------------------------------------
+--  Module : TIMREP
+--
+--  File   : 251009_SYS-1469_TIMREP.cdb
+--
+--  IFS Developer Studio Template Version 2.6
+--
+--  Date    Sign    History
+--  ------  ------  ---------------------------------------------------------
+--  251009   hweerasinghe SYS-1469 Created
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+-------------------- TABLE DEFINITIONS --------------------------------------
+-----------------------------------------------------------------------------
+
+PROMPT CREATE TABLE C_TIMESHEET_EMAIL_TAB
+DECLARE
+   table_name_ VARCHAR2(30) := 'C_TIMESHEET_EMAIL_TAB';
+   columns_    Database_SYS.ColumnTabType;
+   column_     Database_SYS.ColRec;
+BEGIN
+   Database_SYS.Reset_Column_Table(columns_);
+   Database_SYS.Set_Table_Column(columns_, 'COMPANY', 'VARCHAR2(20)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'EMAIL_TEMPLATE', 'VARCHAR2(20)', 'N');   
+   Database_SYS.Set_Table_Column(columns_, 'SUBJECT', 'VARCHAR2(100)', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'DAY_OF_WEEK', 'VARCHAR2(20)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'TIME_OF_DAY', 'VARCHAR2(5)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'TIME_ZONE_CODE', 'VARCHAR2(200)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'DATE_FROM', 'DATE', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'INCLUDE_MANAGER', 'VARCHAR2(20)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'EMPLOYEE_TEMPLATE', 'VARCHAR2(20)', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'LAST_SENT_AT', 'DATE', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'ACTIVE', 'VARCHAR2(20)', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'MODIFIED_BY', 'VARCHAR2(30)', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'MODIFIED_AT', 'DATE', 'Y');
+   Database_SYS.Set_Table_Column(columns_, 'ROWVERSION', 'DATE', 'N');
+   Database_SYS.Set_Table_Column(columns_, 'ROWKEY', 'VARCHAR2(50)', 'N', 'sys_guid()');
+   Database_SYS.Create_Or_Replace_Table(table_name_, columns_, '&IFSAPP_DATA', NULL, TRUE);
+END;
+/
+
+-----------------------------------------------------------------------------
+-------------------- INDEX DEFINITIONS --------------------------------------
+-----------------------------------------------------------------------------
+
+DECLARE
+   index_name_ VARCHAR2(30) := 'C_TIMESHEET_EMAIL_PK';
+   table_name_ VARCHAR2(30) := 'C_TIMESHEET_EMAIL_TAB';
+   columns_    Database_SYS.ColumnTabType;
+BEGIN
+   Database_SYS.Reset_Column_Table(columns_);
+   Database_SYS.Set_Table_Column(columns_, 'COMPANY');
+   Database_SYS.Set_Table_Column(columns_, 'EMAIL_TEMPLATE');
+   Database_SYS.Create_Constraint(table_name_, index_name_, columns_, 'P', '&IFSAPP_INDEX', NULL, TRUE, TRUE);
+END;
+/
+
+DECLARE
+   index_name_ VARCHAR2(30) := 'C_TIMESHEET_EMAIL_RK';
+   table_name_ VARCHAR2(30) := 'C_TIMESHEET_EMAIL_TAB';
+   columns_    Database_SYS.ColumnTabType;
+BEGIN
+   Database_SYS.Reset_Column_Table(columns_);
+   Database_SYS.Set_Table_Column(columns_, 'ROWKEY');
+   Database_SYS.Create_Constraint(table_name_, index_name_, columns_, 'U', '&IFSAPP_INDEX', NULL, TRUE, TRUE);
+END;
+/

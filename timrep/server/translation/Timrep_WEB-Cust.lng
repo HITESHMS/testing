@@ -1,0 +1,133 @@
+-------------------------------------------------------
+File Type: IFS Foundation Language File
+Type version: 10.00
+-------------------------------------------------------
+Module: TIMREP
+Layer: Cust
+Main Type: WEB
+Sub Type: All
+Content: 
+-------------------------------------------------------
+CS:CTimesheetEmail^WEB^Global Data^N^N
+	CS:list.CCompanyEmailLovList^WEB^Global Data^N^N
+		CS:listcontent.badge.Objstate^WEB^Data Field^N^N
+			A:Objstate^Validity^
+		CE:
+		CS:listcontent.static.Company^WEB^Data Field^N^N
+			A:Company^Company^
+		CE:
+		CS:listcontent.static.Description^WEB^Data Field^N^N
+			A:Description^Description^
+		CE:
+		CS:listcontent.static.Id^WEB^Data Field^N^N
+			A:Id^Template ID^
+		CE:
+	CE:
+	CS:list.EmpTemplateLovList^WEB^Global Data^N^N
+		CS:listcontent.static.Remark^WEB^Data Field^N^N
+			A:Remark^Remark^
+		CE:
+		CS:listcontent.static.TemplateId^WEB^Data Field^N^N
+			A:TemplateId^Template Id^
+		CE:
+		CS:listcontent.static.TemplateName^WEB^Data Field^N^N
+			A:TemplateName^Template Name^
+		CE:
+	CE:
+	CS:list.IsoTimeZoneLovList^WEB^Global Data^N^N
+		CS:listcontent.static.Description^WEB^Data Field^N^N
+			A:Description^Description^
+		CE:
+		CS:listcontent.static.OffsetFactor^WEB^Data Field^N^N
+			A:OffsetFactor^Offset Factor^
+		CE:
+		CS:listcontent.static.TimeZoneCode^WEB^Data Field^N^N
+			A:TimeZoneCode^Time Zone Code^
+		CE:
+	CE:
+	CS:list.TimesheetEmailsList^WEB^Global Data^N^N
+		CS:$this^WEB^Table Window^N^N
+			A:$this^Timesheet Emails List^
+		CE:
+		CS:listcontent.field.Active^WEB^Data Field^N^N
+			A:Active^Active^
+		CE:
+		CS:listcontent.field.DateFrom^WEB^Data Field^N^N
+			A:DateFrom^Date From^
+		CE:
+		CS:listcontent.field.DayOfWeek^WEB^Data Field^N^N
+			A:DayOfWeek^Day Of Week^
+		CE:
+		CS:listcontent.field.IncludeManager^WEB^Data Field^N^N
+			A:IncludeManager^Include Manager^
+		CE:
+		CS:listcontent.field.LastSentAt^WEB^Data Field^N^N
+			A:LastSentAt^Sent At^
+		CE:
+		CS:listcontent.field.ModifiedAt^WEB^Data Field^N^N
+			A:ModifiedAt^Modified At^
+		CE:
+		CS:listcontent.field.ModifiedBy^WEB^Data Field^N^N
+			A:ModifiedBy^Modified By^
+		CE:
+		CS:listcontent.field.Subject^WEB^Data Field^N^N
+			A:Subject^Subject^
+		CE:
+		CS:listcontent.field.TimeOfDay^WEB^Data Field^N^N
+			A:TimeOfDay^Time Of Day^
+		CE:
+		CS:listcontent.field.TimezoneRef^WEB^Data Field^N^N
+			A:TimezoneRef^Time Zone Code^
+		CE:
+		CS:listcontent.lookup.EmailTemplateRef^WEB^Data Field^N^N
+			A:EmailTemplateRef^Template ID^
+		CE:
+		CS:listcontent.lookup.EmailTemplateRef.description^WEB^Message^N^N
+			A:description^Description^
+		CE:
+		CS:listcontent.lookup.EmpTemplateRef^WEB^Data Field^N^N
+			A:EmpTemplateRef^Employee Selection Template^
+		CE:
+		CS:listcontent.lookup.EmpTemplateRef.description^WEB^Message^N^N
+			A:description^Template Name^
+		CE:
+	CE:
+	CS:page.CTimesheetEmailOverviewPage^WEB^Global Data^N^N
+		CS:$this^WEB^Form Window^N^N
+			A:$this^SYSTRA Timesheet Emails^
+		CE:
+	CE:
+	CS:selector.ReferenceCCompanyEmailSelector^WEB^Global Data^N^N
+		CS:selectorcontent.badge.Objstate^WEB^Data Field^N^N
+			A:Objstate^State^
+		CE:
+		CS:selectorcontent.static.Description^WEB^Data Field^N^N
+			A:Description^Description^
+		CE:
+		CS:selectorcontent.static.Id^WEB^Data Field^N^N
+			A:Id^Template ID^
+		CE:
+	CE:
+	CS:selector.ReferenceEmpTemplateSelector^WEB^Global Data^N^N
+		CS:selectorcontent.static.Remark^WEB^Data Field^N^N
+			A:Remark^Remark^
+		CE:
+		CS:selectorcontent.static.TemplateId^WEB^Data Field^N^N
+			A:TemplateId^Template Id^
+		CE:
+		CS:selectorcontent.static.TemplateName^WEB^Data Field^N^N
+			A:TemplateName^Template Name^
+		CE:
+	CE:
+	CS:selector.ReferenceIsoTimeZoneSelector^WEB^Global Data^N^N
+		CS:selectorcontent.static.Description^WEB^Data Field^N^N
+			A:Description^Description^
+		CE:
+		CS:selectorcontent.static.OffsetFactor^WEB^Data Field^N^N
+			A:OffsetFactor^Offset Factor^
+		CE:
+		CS:selectorcontent.static.TimeZoneCode^WEB^Data Field^N^N
+			A:TimeZoneCode^Time Zone Code^
+		CE:
+	CE:
+CE:
